@@ -4,222 +4,461 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ガクチカワーク | インターン特化型マッチングシステム</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Animate On Scroll (AOS) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Google Fonts: Inter & Noto Sans JP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="style_gakuchika.css">
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800">
+
     <!-- Top bar -->
-    <header class="top-bar">
-        <div class="container top-bar-container">
-            <div class="logo">
-                <div class="logo-icon">G</div>
-                <strong>インターン特化型マッチングシステム「ガクチカワーク」</strong>
+    <header class="sticky top-0 z-40 w-full bg-white/80 backdrop-blur-sm border-b border-slate-200">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-cyan-400 grid place-items-center font-extrabold text-white text-xl shadow-md">G</div>
+                <strong class="text-slate-700 font-bold hidden sm:block">インターン特化型マッチングシステム「ガクチカワーク」</strong>
             </div>
-            <div class="top-bar-buttons">
-                <button class="btn btn-primary" onclick="scrollToId('form')">資料を無料請求</button>
-                <button class="btn btn-outline" onclick="scrollToId('form')">無料デモを予約</button>
+            <div class="flex items-center gap-2">
+                <button class="px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full hover:scale-105 transition-transform shadow-lg" onclick="scrollToId('form')">資料を無料請求</button>
+                <button class="px-5 py-2 text-sm font-semibold text-slate-700 bg-white border border-slate-300 rounded-full hover:scale-105 hover:bg-slate-100 transition-all shadow-sm hidden md:block" onclick="scrollToId('form')">無料デモを予約</button>
             </div>
         </div>
     </header>
 
-    <!-- Hero -->
-    <section class="section hero">
-        <div class="container grid grid-2 hero-grid">
-            <div>
-                <div class="badge">こんなお悩み、ありませんか？</div>
-                <h1 class="h1">面接では見えない「人柄」と「実務力」を、<br/>インターンで見極める。</h1>
-                <ul class="hero-list">
-                    <li><span class="check-icon">✓</span><span>面接では好印象→配属後にギャップ</span></li>
-                    <li><span class="check-icon">✓</span><span>スコアは高いのにチームで成果が出ない</span></li>
-                    <li><span class="check-icon">✓</span><span>コストと時間をかけても早期離職</span></li>
-                    <li><span class="check-icon">✓</span><span>学生の“強み”や人柄が選考では見えない</span></li>
-                    <li><span class="check-icon">✓</span><span>若手採用の競争が激化、母集団形成が難化</span></li>
-                </ul>
-                <div class="card shadow solution-card">
-                    <strong>解決策は、“実務で見極める”採用。</strong><br/>
-                    ガクチカワークは、インターン中の<strong>実務評価・勤怠・日報・推薦・チャット</strong>を一元化。面接だけでは分からない人物像とスキルを数値化し、<strong>ミスマッチを防ぎ、採用精度と定着率を同時に向上</strong>します。
-                </div>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="scrollToId('form')">導入事例付き資料を無料請求</button>
-                    <button class="btn btn-outline" onclick="scrollToId('form')">無料デモを予約</button>
-                </div>
-            </div>
-            <div class="card shadow ui-mock">
-                <div class="ui-mock-header">
-                    <span class="h3">ダッシュボード</span>
-                    <span class="ui-mock-label">サンプルUI</span>
-                </div>
-                <div class="grid grid-3">
-                    <div class="card stat-card"><div class="h3">勤怠</div><div class="stat-value">96h</div><div class="stat-label">今月の稼働</div></div>
-                    <div class="card stat-card"><div class="h3">日報</div><div class="stat-value">28</div><div class="stat-label">提出数</div></div>
-                    <div class="card stat-card"><div class="h3">評価</div><div class="stat-value">4.6★</div><div class="stat-label">平均スコア</div></div>
-                </div>
-                <div class="card" style="margin-top: 12px; padding: 12px;">
-                    <div class="h3">推薦コメント</div>
-                    <p class="comment-text">「課題設定が的確で、主体的に改善提案ができる」— 指導社員</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why -->
-    <section class="section" style="background: #fff;">
-        <div class="container">
-            <h2 class="h2">採用課題（Why）</h2>
-            <div class="grid grid-2" style="margin-top: 16px;">
-                <div class="card"><div class="h3">見極め不足</div><p>短時間の面接では、協働力・主体性・粘り強さは判断困難</p></div>
-                <div class="card"><div class="h3">コスト損失</div><p>採用～育成の投資が、早期離職でゼロに</p></div>
-                <div class="card"><div class="h3">人材難の加速</div><p>人口減少で若手の獲得競争が年々激化</p></div>
-                <div class="card"><div class="h3">情報ギャップ</div><p>学生の『入社後ギャップ』で早期離職リスク</p></div>
-            </div>
-            <div class="card conclusion-card">
-                <strong>結論：</strong> 選考前に“実務の接点”を作り、<strong>企業と学生の相互理解</strong>を深める仕組みが必要。
-            </div>
-        </div>
-    </section>
-
-    <!-- Comparison -->
-    <section class="section" style="background: #F8FAFC;">
-        <div class="container">
-            <h2 class="h2">面接型採用とインターンシップ採用型の比較</h2>
-            <div class="card" style="overflow-x: auto; margin-top: 12px;">
-                <table class="table">
-                    <thead><tr><th>項目</th><th>面接型採用</th><th>インターンシップ採用型（ガクチカワーク）</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>判断材料</strong></td><td>面接・書類・適性検査</td><td class="highlight">実務評価＋推薦＋勤怠・日報データ</td></tr>
-                        <tr><td><strong>人物像の把握</strong></td><td>短時間の接触のみ</td><td class="highlight">数週間〜数ヶ月の実務経験で多角的に把握</td></tr>
-                        <tr><td><strong>スキル評価</strong></td><td>資格や自己申告に依存</td><td class="highlight">実務成果・フィードバックで定量化</td></tr>
-                        <tr><td><strong>志望度醸成</strong></td><td>選考過程のみ</td><td class="highlight">実務を通じた関係構築で志望度向上</td></tr>
-                        <tr><td><strong>離職リスク</strong></td><td>入社後ギャップで高</td><td class="highlight">相性確認済みで低</td></tr>
-                        <tr><td><strong>採用コスト</strong></td><td>離職発生で再採用コスト増</td><td class="highlight">定着率向上でコスト削減</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- What / Flow -->
-    <section class="section" style="background: #fff;">
-        <div class="container">
-            <h2 class="h2">解決アプローチ（What）</h2>
-            <p class="lead">インターン評価を採用の“当たり前”に。<br/>ガクチカワークは <strong>インターン → 評価 → オファー</strong> を一本化し、データで“確信を持てる内定”へ。</p>
-            <div class="grid grid-3" style="margin-top: 16px;">
-                <div class="card"><div class="chip">STEP 1</div><div class="h3">インターン実施</div><p>現場での協働・課題解決を体験</p></div>
-                <div class="card"><div class="chip">STEP 2</div><div class="h3">データ可視化</div><p>勤怠・日報・評価を自動で蓄積</p></div>
-                <div class="card"><div class="chip">STEP 3</div><div class="h3">オファー・採用</div><p>相性確認後に確信を持って内定</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section class="section" style="background: #F0FDFA;">
-        <div class="container">
-            <h2 class="h2">主な機能（How）</h2>
-            <div class="grid grid-3" style="margin-top: 16px;">
-                <div class="card"><div class="h3">求人掲載＋スカウト</div><p>条件一致の学生に直接アプローチ</p></div>
-                <div class="card"><div class="h3">推薦機能</div><p>教授・OB/OG・上司の第三者評価</p></div>
-                <div class="card"><div class="h3">チャット</div><p>面談調整〜フォローまで一元管理</p></div>
-                <div class="card"><div class="h3">勤怠管理</div><p>出退勤・稼働時間を自動集計</p></div>
-                <div class="card"><div class="h3">日報共有</div><p>学び・課題を蓄積し成長を可視化</p></div>
-                <div class="card"><div class="h3">評価機能</div><p>実務を数値化、多面的評価で精度向上</p></div>
-                <div class="card"><div class="h3">オファー機能</div><p>高評価学生を即囲い込み</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits -->
-    <section class="section" style="background: #fff;">
-        <div class="container">
-            <h2 class="h2">導入メリット</h2>
-            <div class="grid grid-2" style="margin-top: 16px;">
-                <div class="card"><div class="h3">採用担当者向け</div><ul><li>見極め精度向上</li><li>内定辞退率低下</li><li>標準化による属人化防止</li></ul></div>
-                <div class="card"><div class="h3">経営層向け</div><ul><li>離職率低下</li><li>早期戦力化</li><li>グローバル採用対応</li></ul></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Proof -->
-    <section class="section" style="background: #F8FAFC;">
-        <div class="container">
-            <h2 class="h2">実績・信頼性</h2>
-            <div class="grid grid-3" style="margin-top: 16px;">
-                <div class="card proof-card"><div class="proof-value">350+</div><div class="proof-label">全国大学へのリーチ</div></div>
-                <div class="card proof-card"><div class="proof-value">JOBFAIR</div><div class="proof-label">主催・多数参加実績</div></div>
-                <div class="card proof-card"><div class="proof-value">Case</div><div class="proof-label">導入企業の成果事例を資料で公開</div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" style="background: #fff;">
-        <div class="container">
-            <h2 class="h2">よくある質問（FAQ）</h2>
-            <div class="grid grid-2" style="margin-top: 16px;">
-                <div class="card"><div class="h3">ガクチカワークって何ですか？</div><p>学生と企業をつなぐインターン専用のマッチングシステムです。学生の実務スキルや人柄をインターン中に見極められます。</p></div>
-                <div class="card"><div class="h3">初めてでも使えますか？</div><p>直感的な画面設計で、初めての方でもすぐに操作できます。マニュアルやサポートも充実しています。</p></div>
-                <div class="card"><div class="h3">学生はどのように見つけますか？</div><p>自社の募集に参加する学生を登録できるほか、求人掲載機能で広く募集できます。また、登録学生へスカウト送付も可能です。</p></div>
-                <div class="card"><div class="h3">導入にはどれくらい時間がかかりますか？</div><p>平均で1〜2週間程度です。初期設定や操作説明もサポートいたします。</p></div>
-                <div class="card"><div class="h3">費用はかかりますか？</div><p>詳細は資料でご案内します。まずは無料で資料をご請求ください。</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA band -->
-    <section class="cta-band section">
-        <div class="container cta-band-container">
-            <h2 class="h2" style="color: #fff; margin: 0;">“面接だけ”の採用から卒業しませんか？</h2>
-            <div class="cta-band-buttons">
-                <button class="btn btn-outline" onclick="scrollToId('form')">資料を無料請求</button>
-                <button class="btn btn-primary" onclick="scrollToId('form')">無料デモを予約</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Form -->
-    <section id="form" class="section" style="background: #ffffff;">
-        <div class="container grid grid-2 form-grid">
-            <div>
-                <h2 class="h2">資料請求フォーム</h2>
-                <p class="lead">事例・活用方法・機能詳細をまとめた資料をお送りします。下記フォームにご入力ください。</p>
-                <ul class="form-notes">
-                    <li>📧 3営業日以内にメールでお届け</li>
-                    <li>📞 ご希望の方には導入相談のご連絡</li>
-                </ul>
-            </div>
-            <form id="inquiryForm" class="card shadow">
-                <input type="hidden" name="landingPageID" value="Gakuchika_Work Employers">
-                <div class="grid grid-2">
-                    <div><label class="h3">会社名<span class="required">*</span></label><input name="companyName" required placeholder="例）株式会社〇〇" /></div>
-                    <div><label class="h3">部署名・役職</label><input name="departmentName" placeholder="例）人事部／部長" /></div>
-                </div>
-                <div class="grid grid-2">
-                    <div><label class="h3">ご担当者名<span class="required">*</span></label><input name="fullName" required placeholder="姓 名" /></div>
-                    <div><label class="h3">メールアドレス<span class="required">*</span></label><input name="email" required type="email" placeholder="name@example.com" /></div>
-                </div>
-                <div class="grid grid-2">
-                    <div><label class="h3">電話番号</label><input name="phoneNumber" type="tel" placeholder="090-1234-5678" /></div>
-                    <div><label class="h3">お問い合わせ種別<span class="required">*</span></label>
-                        <select name="inquiryType" required><option value="">選択してください</option><option value="資料請求">資料請求</option><option value="無料デモ希望">無料デモ希望</option><option value="その他">その他</option></select>
+    <main>
+                 <!-- New Hero Section -->
+         <section class="hero-bg pt-24 pb-24">
+             <div class="container mx-auto px-6 hero-content">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Left Side Text -->
+                    <div data-aos="fade-right">
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+                            面接では見えない<br/><span class="gradient-text">「人柄」</span> と<span class="gradient-text">「実務力」</span><br/>をインターンで見極める。
+                        </h1>
+                    </div>
+                    <!-- Right Side UI Mockup -->
+                    <div data-aos="fade-left" data-aos-delay="200">
+                        <div class="p-6 bg-white rounded-2xl shadow-2xl border border-slate-200">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-xl font-bold text-slate-800">ダッシュボード</h3>
+                                <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-1 rounded-full">サンプルUI</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="stat-tile">
+                                    <div class="text-sm font-bold text-slate-600 mb-1">勤怠</div>
+                                    <div class="text-2xl font-extrabold text-cyan-600">96h</div>
+                                    <div class="text-xs text-slate-500">今月の稼働</div>
+                                </div>
+                                <div class="stat-tile">
+                                    <div class="text-sm font-bold text-slate-600 mb-1">日報</div>
+                                    <div class="text-2xl font-extrabold text-cyan-600">28</div>
+                                    <div class="text-xs text-slate-500">提出数</div>
+                                </div>
+                                <div class="stat-tile">
+                                    <div class="text-sm font-bold text-slate-600 mb-1">評価</div>
+                                    <div class="text-2xl font-extrabold text-cyan-600">4.6★</div>
+                                    <div class="text-xs text-slate-500">平均スコア</div>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-4 bg-emerald-50 border border-emerald-200 rounded-lg">
+                                <h3 class="text-sm font-bold text-emerald-800 mb-1">推薦コメント</h3>
+                                <p class="text-sm text-slate-600">「課題設定が的確で、主体的に改善提案ができる」— 指導社員</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div><label class="h3">備考（任意）</label><textarea name="message" rows="4" placeholder="ご要望や導入時期など"></textarea></div>
-                <label class="agree-label"><input type="checkbox" required/> プライバシーポリシーに同意します<span class="required">*</span></label>
-                <button class="btn btn-primary" type="submit" id="submitButton">資料を請求する</button>
-            </form>
+            </div>
+        </section>
+
+                 <!-- Concerns Section -->
+         <section class="py-16 bg-white">
+             <div class="container mx-auto px-6">
+                 <div class="max-w-4xl mx-auto">
+                     <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200" data-aos="fade-up">
+                         <div class="flex items-start gap-6">
+                             <div class="flex-shrink-0">
+                                 <div class="bg-cyan-100 text-cyan-700 px-4 py-2 rounded-full text-sm font-bold">
+                                     こんなお悩み、ありませんか？
+                                 </div>
+                             </div>
+                             <div class="flex-1">
+                                 <ul class="space-y-3 text-slate-700">
+                                     <li class="flex items-start gap-3">
+                                         <span class="text-cyan-500 font-bold mt-1">✓</span>
+                                         <span>面接では好印象→配属後にギャップ</span>
+                                     </li>
+                                     <li class="flex items-start gap-3">
+                                         <span class="text-cyan-500 font-bold mt-1">✓</span>
+                                         <span>スコアは高いのにチームで成果が出ない</span>
+                                     </li>
+                                     <li class="flex items-start gap-3">
+                                         <span class="text-cyan-500 font-bold mt-1">✓</span>
+                                         <span>コストと時間をかけても早期離職</span>
+                                     </li>
+                                     <li class="flex items-start gap-3">
+                                         <span class="text-cyan-500 font-bold mt-1">✓</span>
+                                         <span>学生の"強み"や人柄が選考では見えない</span>
+                                     </li>
+                                     <li class="flex items-start gap-3">
+                                         <span class="text-cyan-500 font-bold mt-1">✓</span>
+                                         <span>若手採用の競争が激化、母集団形成が難化</span>
+                                     </li>
+                                 </ul>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </section>
+
+        <!-- New Solution Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center" data-aos="fade-up">
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-snug">
+                        解決策は、<br/>
+                        <span class="gradient-text">“実務で見極める”採用。</span>
+                    </h1>
+                </div>
+                <div class="max-w-4xl mx-auto mt-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-white rounded-2xl p-8 border border-slate-200 text-center">
+                        <img src="images/gakuchika_logo02.png" alt="ガクチカワーク" class="mx-auto mb-6 max-h-24">
+                        <p class="text-slate-600 leading-relaxed text-lg">
+                            ガクチカワークは、インターン中の<strong>実務評価・勤怠・日報</strong>等を一元化。
+                            面接では分からない人物像とスキルを数値化し、
+                            <strong>ミスマッチを防ぎ、採用精度と定着率を同時に向上</strong>します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Section -->
+        <section class="py-20 bg-slate-50 border-t border-slate-200">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4">なぜ、今インターン採用なのか？<br><span class="gradient-text">3つの採用課題</span></h2>
+                    <p class="max-w-2xl mx-auto text-slate-500">従来の採用手法だけでは、企業の成長を支える人材の獲得が年々難しくなっています。</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
+                    <div class="order-2 md:order-1 space-y-6">
+                         <div class="p-6 rounded-xl border border-slate-200 bg-white" data-aos="fade-up" data-aos-delay="100">
+                            <h3 class="font-bold text-lg mb-2 text-slate-700">1. 見極めの限界</h3>
+                            <p class="text-slate-500 text-sm">短時間の面接では、協働力・主体性・粘り強さといった「本当の力」は判断困難です。</p>
+                        </div>
+                        <div class="p-6 rounded-xl border border-slate-200 bg-white" data-aos="fade-up" data-aos-delay="200">
+                            <h3 class="font-bold text-lg mb-2 text-slate-700">2. 早期離職コスト</h3>
+                            <p class="text-slate-500 text-sm">採用・育成への投資が、入社後のミスマッチによる早期離職で水の泡になってしまいます。</p>
+                        </div>
+                         <div class="p-6 rounded-xl border border-slate-200 bg-white" data-aos="fade-up" data-aos-delay="300">
+                            <h3 class="font-bold text-lg mb-2 text-slate-700">3. 人材獲得の激化</h3>
+                            <p class="text-slate-500 text-sm">人口減少で若手の獲得競争が年々激化。企業と学生の“相互理解”を深める仕組みが必要です。</p>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 lg:col-span-2" data-aos="zoom-in">
+                         <img src="https://placehold.co/800x600/E0F2FE/0C4A6E?text=Illustration+Here" alt="Recruitment Challenges Illustration" class="rounded-2xl shadow-xl w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Wave Divider -->
+        <div class="bg-slate-50">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,192L48,176C96,160,192,128,288,133.3C384,139,480,181,576,208C672,235,768,245,864,224C960,203,1056,149,1152,122.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
         </div>
-    </section>
+
+
+        <!-- Comparison Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4">面接採用 vs. <span class="gradient-text">インターン採用</span></h2>
+                    <p class="max-w-2xl mx-auto text-slate-500">ガクチカワークが実現する、データに基づいた採用手法との比較です。</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200" data-aos="fade-up" data-aos-delay="100">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left">
+                            <thead class="bg-slate-50">
+                                <tr>
+                                    <th class="p-4 font-semibold text-slate-600">項目</th>
+                                    <th class="p-4 font-semibold text-slate-600">従来の面接型採用</th>
+                                    <th class="p-4 font-semibold text-cyan-600">ガクチカワーク利用の採用</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200">
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-4 font-semibold">判断材料</td>
+                                    <td class="p-4 text-slate-500">面接・書類・適性検査</td>
+                                    <td class="p-4 font-bold text-cyan-700">実務評価＋推薦＋勤怠データ</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-4 font-semibold">人物像の把握</td>
+                                    <td class="p-4 text-slate-500">短時間の接触のみ</td>
+                                    <td class="p-4 font-bold text-cyan-700">実務経験で多角的に把握</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-4 font-semibold">スキル評価</td>
+                                    <td class="p-4 text-slate-500">資格や自己申告に依存</td>
+                                    <td class="p-4 font-bold text-cyan-700">実務成果で定量化</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-4 font-semibold">離職リスク</td>
+                                    <td class="p-4 text-slate-500">入社後ギャップで高</td>
+                                    <td class="p-4 font-bold text-cyan-700">相性確認済みで低</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What / Flow -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                         <img src="https://placehold.co/800x600/0F172A/94A3B8?text=Flow+Diagram" alt="Process Flow" class="rounded-2xl shadow-xl w-full h-auto">
+                    </div>
+                    <div data-aos="fade-left">
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4">データで“確信を持てる内定”へ</h2>
+                        <p class="text-slate-500 mb-8">ガクチカワークは <strong>インターン → 評価 → オファー</strong> を一本化。採用プロセスをシンプルかつ高精度にします。</p>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-cyan-100 text-cyan-600 font-bold grid place-items-center flex-shrink-0">1</div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1 text-slate-700">インターン実施</h3>
+                                    <p class="text-slate-500 text-sm">現場での協働・課題解決を通じて、学生のポテンシャルを直接確認します。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-cyan-100 text-cyan-600 font-bold grid place-items-center flex-shrink-0">2</div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1 text-slate-700">データ可視化</h3>
+                                    <p class="text-slate-500 text-sm">勤怠・日報・評価を自動で蓄積し、客観的な評価指標として活用できます。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-cyan-100 text-cyan-600 font-bold grid place-items-center flex-shrink-0">3</div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1 text-slate-700">オファー・採用</h3>
+                                    <p class="text-slate-500 text-sm">実務での相性を確認した上で、確信を持って内定を出すことができます。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="py-20 bg-slate-50 border-t border-b border-slate-200">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4">主な機能</h2>
+                    <p class="max-w-2xl mx-auto text-slate-500">採用担当者の業務を効率化し、採用精度を高めるための機能が揃っています。</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Feature Card -->
+                    <div class="p-6 text-center bg-white rounded-xl border border-slate-200" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-cyan-100 rounded-2xl grid place-items-center">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-slate-700">求人掲載＋スカウト</h3>
+                        <p class="text-sm text-slate-500 mt-1">条件一致の学生に直接アプローチ</p>
+                    </div>
+                    <!-- Feature Card -->
+                    <div class="p-6 text-center bg-white rounded-xl border border-slate-200" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-cyan-100 rounded-2xl grid place-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-slate-700">推薦機能</h3>
+                        <p class="text-sm text-slate-500 mt-1">教授・OB/OGからの第三者評価</p>
+                    </div>
+                    <!-- Feature Card -->
+                    <div class="p-6 text-center bg-white rounded-xl border border-slate-200" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-cyan-100 rounded-2xl grid place-items-center">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-slate-700">チャット</h3>
+                        <p class="text-sm text-slate-500 mt-1">面談調整〜フォローまで一元管理</p>
+                    </div>
+                    <!-- Feature Card -->
+                    <div class="p-6 text-center bg-white rounded-xl border border-slate-200" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-cyan-100 rounded-2xl grid place-items-center">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="font-bold text-slate-700">勤怠管理・日報</h3>
+                        <p class="text-sm text-slate-500 mt-1">稼働時間や学びを自動で蓄積</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proof/Credibility Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4">実績・信頼性</h2>
+                    <p class="max-w-2xl mx-auto text-slate-500">多くの企業様、教育機関様にご利用いただいています。</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <!-- Stat Card 1 -->
+                    <div class="p-8 bg-white border border-slate-200 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="0">
+                        <div class="text-5xl font-extrabold gradient-text mb-2">350+</div>
+                        <div class="font-semibold text-slate-700">全国大学へのリーチ</div>
+                    </div>
+                    <!-- Stat Card 2 -->
+                    <div class="p-8 bg-white border border-slate-200 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-5xl font-extrabold gradient-text mb-2">JOBFAIR</div>
+                        <div class="font-semibold text-slate-700">主催・多数参加実績</div>
+                    </div>
+                    <!-- Stat Card 3 -->
+                    <div class="p-8 bg-white border border-slate-200 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-5xl font-extrabold gradient-text mb-2">Case</div>
+                        <div class="font-semibold text-slate-700">導入企業の成果事例を資料で公開</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-20 bg-slate-50 border-t border-slate-200">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4">よくある質問 (FAQ)</h2>
+                    <p class="max-w-2xl mx-auto text-slate-500">導入に関してご不明な点はこちらをご確認ください。</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200" data-aos="fade-up" data-aos-delay="0">
+                        <h3 class="font-bold text-slate-800 mb-2">ガクチカワークって何ですか？</h3>
+                        <p class="text-sm text-slate-600">学生と企業をつなぐインターン専用のマッチングシステムです。学生の実務スキルや人柄をインターン中に見極められます。</p>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="font-bold text-slate-800 mb-2">初めてでも使えますか？</h3>
+                        <p class="text-sm text-slate-600">直感的な画面設計で、初めての方でもすぐに操作できます。マニュアルやサポートも充実しています。</p>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200" data-aos="fade-up" data-aos-delay="0">
+                        <h3 class="font-bold text-slate-800 mb-2">学生はどのように見つけますか？</h3>
+                        <p class="text-sm text-slate-600">自社の募集に参加する学生を登録できるほか、求人掲載機能で広く募集できます。また、登録学生へスカウト送付も可能です。</p>
+                    </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="font-bold text-slate-800 mb-2">導入にはどれくらい時間がかかりますか？</h3>
+                        <p class="text-sm text-slate-600">平均で1〜2週間程度です。初期設定や操作説明もサポートいたします。</p>
+                    </div>
+                    <!-- FAQ Item 5 -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 md:col-span-2" data-aos="fade-up">
+                        <h3 class="font-bold text-slate-800 mb-2">費用はかかりますか？</h3>
+                        <p class="text-sm text-slate-600">詳細は資料でご案内します。まずは無料で資料をご請求ください。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA band -->
+        <section class="bg-gradient-to-r from-slate-800 via-slate-900 to-black">
+             <div class="container mx-auto px-6 py-16 text-center">
+                <h2 class="text-3xl font-extrabold text-white mb-4" data-aos="fade-up">“面接だけ”の採用から卒業しませんか？</h2>
+                <p class="text-slate-300 max-w-xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="100">まずは無料資料請求で、インターン採用の成功事例をご覧ください。</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
+                    <button class="px-8 py-3 font-semibold text-white bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full hover:scale-105 transition-transform shadow-lg" onclick="scrollToId('form')">導入事例付き資料を無料請求</button>
+                    <button class="px-8 py-3 font-semibold text-slate-800 bg-white rounded-full hover:scale-105 transition-transform" onclick="scrollToId('form')">無料デモを予約</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Section -->
+        <section id="form" class="py-20 bg-white">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl font-extrabold text-slate-800">資料請求フォーム</h2>
+                    <p class="text-slate-500 mt-4 mb-6">事例・活用方法・機能詳細をまとめた資料をお送りします。下記フォームにご入力ください。</p>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-center gap-3">
+                            <span class="w-6 h-6 text-sm grid place-items-center rounded-full bg-emerald-100 text-emerald-700">📧</span>
+                            3営業日以内にメールでお届け
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-6 h-6 text-sm grid place-items-center rounded-full bg-emerald-100 text-emerald-700">📞</span>
+                             ご希望の方には導入相談のご連絡
+                        </li>
+                    </ul>
+                </div>
+                <form id="inquiryForm" class="bg-white p-8 rounded-2xl shadow-2xl border border-slate-200 space-y-5" data-aos="fade-left">
+                    <input type="hidden" name="landingPageID" value="Gakuchika_Work_Employers_Refactored">
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="font-semibold text-sm text-slate-600 mb-1 block">会社名<span class="text-red-500">*</span></label>
+                            <input name="companyName" required placeholder="例）株式会社〇〇" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition" />
+                        </div>
+                        <div>
+                            <label class="font-semibold text-sm text-slate-600 mb-1 block">部署名・役職</label>
+                            <input name="departmentName" placeholder="例）人事部／部長" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition" />
+                        </div>
+                    </div>
+                     <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="font-semibold text-sm text-slate-600 mb-1 block">ご担当者名<span class="text-red-500">*</span></label>
+                            <input name="fullName" required placeholder="姓 名" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition" />
+                        </div>
+                        <div>
+                            <label class="font-semibold text-sm text-slate-600 mb-1 block">メールアドレス<span class="text-red-500">*</span></label>
+                            <input name="email" required type="email" placeholder="name@example.com" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition" />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="font-semibold text-sm text-slate-600 mb-1 block">お問い合わせ種別<span class="text-red-500">*</span></label>
+                        <select name="inquiryType" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition bg-white">
+                            <option value="">選択してください</option>
+                            <option value="資料請求">資料請求</option>
+                            <option value="無料デモ希望">無料デモ希望</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-semibold text-sm text-slate-600 mb-1 block">備考（任意）</label>
+                        <textarea name="message" rows="3" placeholder="ご要望や導入時期など" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition"></textarea>
+                    </div>
+                    <div>
+                        <label class="flex items-center gap-2 text-sm text-slate-600"><input type="checkbox" required class="rounded border-slate-300 text-cyan-500 focus:ring-cyan-500"/> プライバシーポリシーに同意します<span class="text-red-500">*</span></label>
+                    </div>
+                    <button id="submitButton" class="w-full py-3 text-lg font-bold text-white bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full hover:scale-105 transition-transform shadow-lg disabled:opacity-50 disabled:cursor-wait" type="submit">資料を請求する</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-container">
-            <small>&copy; 2025 GakuchikaWorks Inc.</small>
-            <nav class="footer-nav">
-                <a href="#">会社概要</a>
-                <a href="#">プライバシーポリシー</a>
-                <a href="#">お問い合わせ</a>
+    <footer class="bg-slate-100 border-t border-slate-200">
+        <div class="container mx-auto px-6 py-6 flex flex-col sm:flex-row justify-between items-center text-sm">
+            <small class="text-slate-500">&copy; 2025 GakuchikaWorks Inc.</small>
+            <nav class="flex gap-4 mt-4 sm:mt-0">
+                <a href="#" class="text-slate-600 hover:text-cyan-500 transition">会社概要</a>
+                <a href="#" class="text-slate-600 hover:text-cyan-500 transition">プライバシーポリシー</a>
+                <a href="#" class="text-slate-600 hover:text-cyan-500 transition">お問い合わせ</a>
             </nav>
         </div>
     </footer>
     
+    <!-- Animate On Scroll (AOS) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom Script -->
     <script src="script_gakuchika.js"></script>
 </body>
 </html>
+
