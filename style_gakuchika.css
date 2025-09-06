@@ -77,6 +77,12 @@ body {
 .p-12 { padding: 12px; }
 .items-center { align-items: center; }
 
+/* .full-width-image-section img {
+    width: 654px;    /*native width
+    max-width: 100%;  /*shrink on small screens
+    height: auto;
+  } */
+  
 /* Semantic helpers (keeps Tailwind in HTML; adds named hooks) */
 .section-title { letter-spacing: 0.01em; }
 .section-subtitle { letter-spacing: 0.01em; }
@@ -84,3 +90,4 @@ body {
 .stat-tile { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 16px; text-align: center; }
 .cta-gradient-btn { background: linear-gradient(90deg, #06B6D4, #10B981); color: #ffffff; border-radius: 9999px; }
 .cta-outline-btn { background: #ffffff; color: #0f172a; border-radius: 9999px; }
+

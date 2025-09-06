@@ -9,30 +9,13 @@ function scrollToId(id) {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
-// --- Popup Modal Logic ---
-const popup = document.getElementById('concerns-popup');
-
-function openPopup() {
-    if (popup) {
-        popup.classList.remove('hidden');
-        // Trigger AOS animations inside the popup if needed
-        AOS.refresh();
-    }
+// Header Scrrol function for logo
+function scrollToTop(){
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    })
 }
-
-function closePopup() {
-    if (popup) {
-        popup.classList.add('hidden');
-    }
-}
-
-// Close popup if user clicks on the overlay
-popup.addEventListener('click', function(event) {
-    if (event.target === popup) {
-        closePopup();
-    }
-});
-
 
 // Wait for the DOM to be fully loaded before running scripts
 document.addEventListener('DOMContentLoaded', function () {
