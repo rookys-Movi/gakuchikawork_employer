@@ -10,11 +10,11 @@ function scrollToId(id) {
 }
 
 // Header Scrrol function for logo
-function scrollToTop(){
+function scrollToTop(id){
     window.scrollTo({
         top: 0,
-        behavior: 'smooth',
-    })
+        behavior: 'smooth'
+    });
 }
 
 // Wait for the DOM to be fully loaded before running scripts
